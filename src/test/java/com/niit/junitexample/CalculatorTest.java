@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 @DisplayName("JUnit 5 Example")
 class CalculatorTest {
@@ -42,6 +44,13 @@ class CalculatorTest {
 	    @DisplayName("Second test")
 	    void secondTest() {
 	        System.out.println("Second test method");
+	    }
+	    
+	    @DisplayName("Should pass a non-null message to our test method")
+	    @ParameterizedTest
+	    @ValueSource(strings = {"Hello", "World"})
+	    void shouldPassNonNullMessageAsMethodParameter(String message) {
+	        assertNotNull(message);
 	    }
 
 }
