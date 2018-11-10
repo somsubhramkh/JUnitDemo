@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mkdir /root/.m2'
-                sh 'chmod 777 /root/.m2'
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
